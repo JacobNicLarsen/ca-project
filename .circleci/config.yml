@@ -5,5 +5,5 @@ jobs:
             - image: jacobniclarsen/codechan:latest
         steps:
             - run:
-                name: The First Step
-                command: echo 'Hello, World!'
+                name: Running test
+                command: python test.py
