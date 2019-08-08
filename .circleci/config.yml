@@ -7,3 +7,30 @@ jobs:
             - run:
                 name: Running test
                 command: python3 /usr/src/CoDeChan/tests.py
+    merge:
+        steps:
+            - run:
+                name: merging
+                command: |
+                        git checkout master
+                        git pull
+                        git checkout jenkins
+                        git merge master --ff-only
+    push:
+       steps:
+           - run:
+               name: pushing
+               command: |
+                       git push
+workflows:
+  version: 2
+  three_job_flow:
+    jobs:
+      - merge
+      - build:
+              requiers:
+                      - merge
+      - push:
+              requires:
+                      - build:
+
