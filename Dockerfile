@@ -4,4 +4,5 @@ RUN apt update -y && apt install -y python3 python3-pip python3-dev build-essent
 COPY .  /usr/src/CoDeChan
 RUN pip3 install --no-cache-dir -r /usr/src/CoDeChan/requirements.txt
 EXPOSE 5000
+WORKDIR /usr/src/CoDeChan/
 CMD ["python3", "/usr/src/CoDeChan/run.py"]
