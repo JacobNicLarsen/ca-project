@@ -6,4 +6,4 @@ jobs:
         steps:
             - run:
                 name: Running test
-                command: python test.py
+                command: python3 /usr/src/CoDeChan/test.py
